@@ -11,9 +11,8 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.github.sukgu.Shadow;
 import org.junit.Assert;
-import org.openqa.selenium.WebElement;
+
 
 public class Adding_a_product_to_the_chart_and_login {
 
@@ -27,9 +26,7 @@ public class Adding_a_product_to_the_chart_and_login {
     public void the_candidate_navigates_to_fashionette_de_home_page() {
         String url = ConfigurationReader.get("url");
         Driver.get().get(url);
-        Shadow shadow = new Shadow(Driver.get());
-        WebElement element = shadow.findElement("button[role='button']");
-        element.click();
+
     }
 
     @Given("the candidate navigates to {string} {string}")

@@ -2,27 +2,20 @@ package de.fashionette.step_definitions;
 
 import de.fashionette.pages.PersönlicheDatenPage;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
+
 
 public class Modifying_user_information {
 
     PersönlicheDatenPage pd = new PersönlicheDatenPage();
 
 
-    @Given("the candidate is on the fashionette home page")
-    public void the_candidate_is_on_the_fashionette_home_page() {
+    @And("the candidate clicks PERSONLICHE DATEN")
+    public void theCandidateClicksPERSONLICHEDATEN() {
 
-    }
-
-    @And("the candidate clicks PERSÖNLICHE DATEN")
-    public void the_candidate_clicks_PERSÖNLICHE_DATEN() {
-
-      pd.persönlicheDaten.click();
-
+        pd.persönlicheDaten.click();
     }
 
     @And("the candidate clicks BEARBEITEN")
@@ -51,13 +44,11 @@ public class Modifying_user_information {
      String actualFirstName = pd.firstName.getText();
      String actualLastName = pd.lastName.getText();
 
-     Assert.assertEquals(expectedFirstName, actualFirstName );
+     Assert.assertEquals(expectedFirstName, actualFirstName);
      Assert.assertEquals(expectedLastName, actualLastName);
 
 
     }
-
-
 
 
 }

@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "de/fashionette/step_definitions",
         dryRun = false,
-        tags = "@wipp"
+        tags = "@wip"
 )
 public class CukesRunner {
 }
