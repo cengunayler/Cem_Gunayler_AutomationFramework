@@ -41,11 +41,11 @@ public class Modifying_user_information {
     @Then("the candidate should be able to save and see the new name and surname")
     public void the_candidate_should_be_able_to_save_and_see_the_new_name_and_surname() {
 
-     String expectedFullName = "Candidate Automation";
+     String expectedFullName = "Herr Candidate Automation";
 
      String actualFullName = pd.newFullName.getText();
 
-     String actualFullNameTrim = actualFullName.substring(0,20);
+     String actualFullNameTrim = actualFullName.substring(0,25);
 
      System.out.println("actualFullNameTrim = " + actualFullNameTrim);
 

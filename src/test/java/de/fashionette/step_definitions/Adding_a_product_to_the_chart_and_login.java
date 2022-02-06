@@ -104,8 +104,9 @@ public class Adding_a_product_to_the_chart_and_login {
     }
 
     @Then("the candidate should see the product features which are {string} {string} {string} in the cart")
-    public void theCandidateShouldSeeTheProductFeaturesWhichAreInTheCart(String model, String colour, String size) {
+    public void theCandidateShouldSeeTheProductFeaturesWhichAreInTheCart(String model, String colour, String size) throws InterruptedException {
 
+        Thread.sleep(3000);
         Assert.assertEquals(model, cartPage.model.getText());
         Assert.assertEquals(colour, cartPage.colour.getText());
         Assert.assertEquals(size, cartPage.size.getText());
