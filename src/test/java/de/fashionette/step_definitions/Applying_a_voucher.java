@@ -23,20 +23,13 @@ public class Applying_a_voucher {
     }
 
     @Then("the voucher should be properly applied")
-    public void the_voucher_should_be_properly_applied() {
+    public void the_voucher_should_be_properly_applied() throws InterruptedException {
 
-        String actualGutscheinCodeName = cartPage.gutscheinCodeValue.getAttribute("data-code").trim().toLowerCase();
 
-        String expectedGutscheinCodeName = "qachallenge";
+        Thread.sleep(3000);
+        System.out.println(cartPage.gutscheinCodeValue.getAttribute("innerHTML").trim());
 
-        Assert.assertEquals(expectedGutscheinCodeName, actualGutscheinCodeName);
-
-        String discount = cartPage.gutscheinCodeValue.getText().trim().substring(0,cartPage.gutscheinCodeValue.getText().indexOf(" "));
-
-        double discountAmount = Double.parseDouble(discount);
-
-        Assert.assertEquals(-2.0, discountAmount);
-
+        Assert.assertEquals("-2 €", cartPage.gutscheinCodeValue.getAttribute("innerHTML").trim());
 
 
     }

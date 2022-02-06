@@ -20,7 +20,7 @@ public class CartPage extends BasePage{
     @FindBy(xpath="//input[@name='voucherCode']")
     public WebElement gutscheinCodeTextBox;
 
-    @FindBy(xpath="/ (//button[@type='submit'])[1]")
+    @FindBy(xpath="(//button[@type='submit'])[1]")
     public WebElement gutscheinCodeSubmit;
 
     @FindBy(xpath="//a[contains(text(),'eingeben')]/../span")

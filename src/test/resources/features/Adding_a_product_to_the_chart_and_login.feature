@@ -1,6 +1,4 @@
-
-
-@wipp
+@wip
 Feature: Users should be able to login
 
   Background: the candidate lands on the fashionette.de home page
@@ -16,7 +14,7 @@ Feature: Users should be able to login
     And   the candidate clicks the login icon
     And   the candidate logins with valid credentials
     When  the candidate clicks to cart
-    Then  the candidate should see the product features which are "Alexander McQueen" "Sneakers Leather White/Paris Blue" "41" in the cart
+    Then  the candidate should see the product features which are "ALEXANDER MCQUEEN" "Sneakers Leather White/Paris Blue" "Größe 41 (EU)" in the cart
 
 
 

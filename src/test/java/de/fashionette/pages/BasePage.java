@@ -19,9 +19,18 @@ public abstract class  BasePage {
 
     public void menuNavigation (String tab, String module) {
 
-        String tabLocator = "( //a[@title='" + tab + "'])[1]";
+        String tabLocator = "( //a[@title='"+tab+"'])[1]";
+
+        WebElement tabbtn = Driver.get().findElement(By.xpath(tabLocator));
+
+        tabbtn.click();
 
         String moduleLocator = "//a[@title='"+module+"']";
+
+        WebElement modulebtn = Driver.get().findElement(By.xpath(moduleLocator));
+
+        modulebtn.click();
+
     }
 
     @FindBy(xpath="//a[@title='Einloggen']")

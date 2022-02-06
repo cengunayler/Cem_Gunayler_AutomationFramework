@@ -19,33 +19,41 @@ public class Modifying_user_information {
     }
 
     @And("the candidate clicks BEARBEITEN")
-    public void the_candidate_clicks_BEARBEITEN() {
+    public void the_candidate_clicks_BEARBEITEN() throws InterruptedException {
 
        pd.bearbeiten.click();
+       Thread.sleep(3000);
 
     }
 
     @When("the candidate modifies the name and surname of the user")
-    public void the_candidate_modifies_the_name_and_surname_of_the_user() {
+    public void the_candidate_modifies_the_name_and_surname_of_the_user() throws InterruptedException {
 
         pd.firstName.clear();
-        pd.firstName.sendKeys("Cem");
+        pd.firstName.sendKeys("Candidate");
         pd.lastName.clear();
-        pd.lastName.sendKeys("Günayler");
+        pd.lastName.sendKeys("Automation");
         pd.speichern.click();
+        Thread.sleep(3000);
 
     }
 
     @Then("the candidate should be able to save and see the new name and surname")
     public void the_candidate_should_be_able_to_save_and_see_the_new_name_and_surname() {
 
-     String expectedFirstName = "Cem";
-     String expectedLastName = "Günayler";
-     String actualFirstName = pd.firstName.getText();
-     String actualLastName = pd.lastName.getText();
+     String expectedFullName = "Candidate Automation";
 
-     Assert.assertEquals(expectedFirstName, actualFirstName);
-     Assert.assertEquals(expectedLastName, actualLastName);
+     String actualFullName = pd.newFullName.getText();
+
+     String actualFullNameTrim = actualFullName.substring(0,20);
+
+     System.out.println("actualFullNameTrim = " + actualFullNameTrim);
+
+     System.out.println("actualFullNamE = " + actualFullName);
+
+
+     Assert.assertEquals(expectedFullName, actualFullNameTrim);
+
 
 
     }

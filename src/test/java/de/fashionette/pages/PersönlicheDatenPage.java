@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 public class PersönlicheDatenPage extends BasePage {
 
 
-    @FindBy(xpath="//a[@data-component-name='accordion'])[2]")
+    @FindBy(xpath="//div[@class='account-personaldata']/a")
     public WebElement persönlicheDaten;
 
     @FindBy(xpath="(//div[@class='account--address__action account--address__action--update'])[1]")
@@ -21,7 +21,8 @@ public class PersönlicheDatenPage extends BasePage {
     @FindBy(xpath="//div[@class='account--address__action account--address__action--save']")
     public WebElement speichern;
 
-
+    @FindBy(xpath="//div[@zipcode-mask='99999']/div[2]")
+    public WebElement newFullName;
 
 
 

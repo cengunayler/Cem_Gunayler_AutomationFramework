@@ -12,6 +12,11 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.SearchContext;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.json.Json;
 
 
 public class Adding_a_product_to_the_chart_and_login {
@@ -23,9 +28,20 @@ public class Adding_a_product_to_the_chart_and_login {
 
 
     @Given("the candidate navigates to fashionette.de home page")
-    public void the_candidate_navigates_to_fashionette_de_home_page() {
+    public void the_candidate_navigates_to_fashionette_de_home_page() throws InterruptedException {
         String url = ConfigurationReader.get("url");
         Driver.get().get(url);
+        Driver.get().manage().window().maximize();
+        Thread.sleep(5000);
+        WebElement shadowHost = Driver.get().findElement(By.cssSelector("#usercentrics-root"));
+        JavascriptExecutor js = (JavascriptExecutor) Driver.get();
+        SearchContext shadowRoot = (SearchContext) js.executeScript("return arguments[0].shadowRoot", shadowHost);
+        WebElement shadowContent = shadowRoot.findElement(By.cssSelector("button[data-testid=uc-accept-all-button]"));
+
+        shadowContent.click();
+
+        Thread.sleep(5000);
+
 
     }
 
@@ -44,7 +60,9 @@ public class Adding_a_product_to_the_chart_and_login {
     }
 
     @Given("the candidate chooses the {string}")
-    public void the_candidate_chooses_the(String colour) {
+    public void the_candidate_chooses_the(String colour) throws InterruptedException {
+
+       Thread.sleep(3000);
 
         prPage.productColour(colour).click();
 
@@ -71,7 +89,7 @@ public class Adding_a_product_to_the_chart_and_login {
     }
 
     @And("the candidate logins with valid credentials")
-    public void theCandidateLoginsWithValidCredentials() {
+    public void theCandidateLoginsWithValidCredentials() throws InterruptedException {
 
         logPage.login();
     }

@@ -1,4 +1,4 @@
-
+@wip
 Feature: The candidate should be able to modify user information
 
   Background:login

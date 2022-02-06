@@ -1,5 +1,6 @@
 package de.fashionette.pages;
 
+import de.fashionette.utilities.BrowserUtils;
 import de.fashionette.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -16,7 +17,9 @@ public class ProductPage extends BasePage {
 
     public WebElement productColour(String colour) {
 
-        return Driver.get().findElement(By.xpath("//div[@title='"+colour+"']"));
+       // BrowserUtils.waitForVisibility(Driver.get().findElement(By.xpath("//a[@title='"+colour+"']")),10);
+        return Driver.get().findElement(By.xpath("//a[@title='"+colour+"']"));
+
 
     }
 
